@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mapa Base PNG</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <style>
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+    // Bounds calculados a partir de tus coordenadas reales
+    var bounds = [
+      [8.066111,  -85.943889],  // esquina inferior izquierda
+      [11.221944, -82.622500]   // esquina superior derecha
+    ];
+
+    var map = L.map('map', {
+      minZoom: 6,
+      maxZoom: 14
+    });
+
+    
+    L.imageOverlay("Mapa_Base/altitud_mapa_base.png", bounds).addTo(map); 
+
+    map.fitBounds(bounds);
+  </script>
+
+</body>
+</html>
