@@ -16,19 +16,19 @@
   <div id="map"></div>
 
   <script>
-    // Bounds calculados a partir de tus coordenadas reales
-    var bounds = [
-      [8.066111,  -85.943889],  // esquina inferior izquierda
-      [11.221944, -82.622500]   // esquina superior derecha
-    ];
-
-    var map = L.map('map', {
-      minZoom: 6,
-      maxZoom: 14
-    });
-
     
-    L.imageOverlay("Mapa_Base/altitud_mapa_base.png", bounds).addTo(map); 
+    var map = L.map('map');
+
+    var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.png', {
+      minZoom: 9,
+      maxZoom: 13,
+      tms: true,
+      bounds: [[8.0, -86.0], [11.5, -82.5]],
+      attribution: 'Proyecto 3 SIG'
+    }).addTo(map);
+    map.setView([9.9, -84.0], 9);
+
+    //L.imageOverlay("Mapa_Base/altitud_mapa_base.png", bounds).addTo(map);
 
     map.fitBounds(bounds);
   </script>
