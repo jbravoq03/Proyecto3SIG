@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>Mapa Base PNG</title>
+  <title>Mapa - Alajuela</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -19,16 +19,24 @@
     
     var map = L.map('map');
 
+    var bounds_base = [[8.0, -86.0], [11.5, -82.5]];
+
+    map.createPane("pane_fondo");
+    map.getPane("pane_fondo").style.zIndex = 100;
+
+    var baseImage = L.imageOverlay("Mapa_Base/altitud_mapa_base.png", bounds_base, {
+        pane: "pane_fondo"
+    }).addTo(map);
+
     var tiles = L.tileLayer('./tiles/{z}/{x}/{y}.png', {
       minZoom: 9,
       maxZoom: 13,
       tms: true,
       bounds: [[8.0, -86.0], [11.5, -82.5]],
-      attribution: 'Proyecto 3 SIG'
+      attribution: 'Proyecto 3 SIG',
+      opacity: 0.8
     }).addTo(map);
     map.setView([9.9, -84.0], 9);
-
-    //L.imageOverlay("Mapa_Base/altitud_mapa_base.png", bounds).addTo(map);
 
     map.fitBounds(bounds);
   </script>
