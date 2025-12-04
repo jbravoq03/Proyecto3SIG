@@ -33,8 +33,9 @@ https://jbravoq03.github.io/Proyecto3SIG/
 
 ### 2. Archivos shapefile de polígonos.
 - Se utilizaron las capas de poligonos mencionadas en la especificación, además, se extrajo de OpenStreetMap, seleccionando el cantón central de Alajuela, la capa que contenia zonas verdes y parques. Todo esto, posteriormente, se le asigno un estilo en TileMill.
-- 
+
 ### 3. Archivos shapefile de líneas.
+- Se utilizaron las capas de carreteras y ríos, tomadas del archivo Geo_CR ubicado en los documentos del curso. Tambien se extrajo de OpenStreetMap la capa de calles, de esta forma se tomaron estos 3 archivos de líneas y se estilizaron en TileMill, estableciendo que la etiqueta era de una línea, para que apareciera de forma continua en todo su recorrido, se utilizó distintos colores para poder diferenciar carreteras, ríos y calles.
 
 ### 4. Archivos shapefile de puntos.
-- 
+- Se tomaron todas las capas de puntos listadas en la especificación del proyecto (Escuelas, agencias bancarias, hospitales, gasolineras y demás). También, se extrajo de OpenStreetMap los puntos que representaban tiendas y amenidades. Todas estas capas fueron cargadas en TileMill, posteriormente descargamos una colección de íconos del siguiente repositorio: https://github.com/rapideditor/temaki?tab=readme-ov-file. Utilizamos distintos íconos para cada tipo de elemento puntual, así como diferente color tanto para el ícono como para la etiqueta, de esta forma se pueden identificar fácilmente.
