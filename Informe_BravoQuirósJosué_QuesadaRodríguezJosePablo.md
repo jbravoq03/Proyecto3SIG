@@ -30,13 +30,15 @@ https://jbravoq03.github.io/Proyecto3SIG/
 
 ## Descripción del proceso de creación del mapa.
 ### 1. Capa del cantón central de Alajuela.
-- Primero seleccionamos y exportamos como shapefile el canton central de Alajuela, obtenido del shapefile que contenia los cantones. Posteriormente usamos esta capa para aplicar intersecciones con el resto de capas poligonales, lineales y puntuales necesarias para realizar el proyecto.
+
+- Se inició seleccionando el cantón central de Alajuela a partir de la capa general de cantones (shapefile geo_cantones). Una vez identificado, Esta capa funcionó como base para aplicar operaciones de intersección con las demás capas poligonales, de líneas y de puntos incluidas en el proyecto, manteniendo únicamente los datos correspondientes al territorio del cantón central.
 
 ### 2. Imagen base.
-- Para la imagen base se utilizó la capa puntual llamada "geo_hitos", utilizamos interpolacion por distancia inversa ponderada, posteriormente el .TIF generado lo convertimos a .PNG y tomamos las coordenadas x,y del .TIF para colocarlo correctamente con Leaflet.
+- Para la creación de la imagen base del mapa, se utilizó la capa puntual denominada “geo_hitos”. A partir de esos puntos se aplicó interpolación mediante el método de distancia inversa ponderada (IDW), con lo cual se generó un archivo 
+.TIF Este archivo se convirtió posteriormente a formato .PNG para poder integrarlo correctamente con Leaflet. Además, se tomaron las coordenadas X y Y del archivo original para asegurar que la imagen quedara alineada y georreferenciada en su posición correspondiente dentro del visor web.
 
 ### 3. Archivos shapefile de polígonos.
-- Se utilizaron las capas de poligonos mencionadas en la especificación, además, se extrajo de OpenStreetMap, seleccionando el cantón central de Alajuela, la capa que contenia zonas verdes y parques. Todo esto, posteriormente, se le asigno un estilo en TileMill.
+- Se trabajó con todas las capas poligonales mencionadas en la especificación del proyecto. Además, se incorporó una capa adicional obtenida desde OpenStreetMap, correspondiente al cantón central de Alajuela (incluyendo: zonas verdes y parques dentro del área) . Luego de cargarlas, se aplicaron estilos en TileMill, asignando colores y propiedades visuales adecuadas para permitir su correcta diferenciación y visualización en el mapa.
 
 ### 4. Archivos shapefile de líneas.
 - Se utilizaron las capas de carreteras y ríos, tomadas del archivo Geo_CR ubicado en los documentos del curso. Tambien se extrajo de OpenStreetMap la capa de calles, de esta forma se tomaron estos 3 archivos de líneas y se estilizaron en TileMill, estableciendo que la etiqueta era de una línea, para que apareciera de forma continua en todo su recorrido, se utilizó distintos colores para poder diferenciar carreteras, ríos y calles.
@@ -45,5 +47,4 @@ https://jbravoq03.github.io/Proyecto3SIG/
 - Se tomaron todas las capas de puntos listadas en la especificación del proyecto (Escuelas, agencias bancarias, hospitales, gasolineras y demás). También, se extrajo de OpenStreetMap los puntos que representaban tiendas y amenidades. Todas estas capas fueron cargadas en TileMill, posteriormente descargamos una colección de íconos del siguiente repositorio: https://github.com/rapideditor/temaki?tab=readme-ov-file. Utilizamos distintos íconos para cada tipo de elemento puntual, así como diferente color tanto para el ícono como para la etiqueta, de esta forma se pueden identificar fácilmente.
 
 ### 6. Niveles de zoom en TileMill.
-- Primero generamos 5 niveles de zoom (9 a 13) seleccionando todo el país. Posteriormente, seleccionamos solo la zona del cantón, de esta forma, generamos otros 5 niveles más (14 a 18). 
-- Seleccionamos solo la zona del canton porque era lo que necesitaba más niveles para mostrar mejor los detalles y también porque que si lo haciamos con todo el país el archivo llegaba a pesar cientos de GB.
+- La generación de los niveles de zoom se realizó en dos etapas. Primero, se crearon los niveles de zoom del 9 al 13 considerando toda la extensión del país. Posteriormente, se limitaron los niveles del 14 al 18 únicamente al área del cantón central de Alajuela. Esta decisión permitió representar con mayor detalle la zona de estudio sin provocar un incremento excesivo en el tamaño del archivo, ya que si se hubieran aplicado los niveles de zoom altos al país completo, el tamaño del proyecto habría alcanzado cientos de gigabytes.
